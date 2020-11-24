@@ -22,9 +22,9 @@
     </li>
     {{--お気に入り一覧タブ:route指定と$user->先指定--}}
     <li class="nav-item">
-        <a href="{{ route('#', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('#') ? 'active' : '' }}">
-            Followers
-            <span class="badge badge-secondary">{{ $user-># }}</span>
+        <a href="{{ route('users.favorites', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.favorites') ? 'active' : '' }}">
+            Favorites
+            <span class="badge badge-secondary">{{ $user->favorites_count }}</span>
         </a>
     </li>
 </ul>
