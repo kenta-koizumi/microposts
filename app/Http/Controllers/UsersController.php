@@ -49,14 +49,18 @@ class UsersController extends Controller
     //追加
     public function favorites($id)
     {
-        
+        $data = [];
         $user = User::findOrFail($id);
         $user->loadRelationshipCounts();
+        //
         $favorites = $user->favorites()->paginate(10);
 
-        return view('users.favorites', [
-            'user' => $user,
-            'users' => $favorites,
-        ]);
+        $data = [
+                'user' => $user,
+                'favorites' => $favorites,
+                ];
+        
+        return view('users.favorites', $data
+        );
     }
 }
